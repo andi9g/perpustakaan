@@ -5,6 +5,7 @@ $laporan = new perpustakaan;
 	
 	
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel='stylesheet' href='styleLaporan.css'>

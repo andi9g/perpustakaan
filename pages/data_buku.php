@@ -19,8 +19,8 @@
         <tr>
             <th>Id Buku</th>
             <th>Judul Buku</th>
-            <th>Pengarang</th>
             <th>Penerbit</th>
+            <th>Pengarang</th>
             <th>Tahun Terbit</th>
             <th>Stok Buku</th>
             <th>Aksi</th>
@@ -31,7 +31,7 @@
                 foreach($db->tampil_buku() as $tampil){
             ?>
             <tr>
-                <td><?php echo $tampil['id_buku']?></td>
+                <td style="font-weight: bold;"><?php echo $tampil['id_buku']?></td>
                 <td><?php echo $tampil['judul_buku']?></td>
                 <td><?php echo $tampil['penerbit']?></td>
                 <td><?php echo $tampil['pengarang']?></td>

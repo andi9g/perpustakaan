@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-        <ol class="breadcrumb py-1 px-2 m-0 <?php if($_SESSION['sidebarku']=='light'){?>breadcrumbku<?php }else{ echo "breadcrumbColor";}?>">
+        <ol class="breadcrumb py-1 px-2 m-0 <?php if($_SESSION['sidebarku']=='dark'){?>breadcrumbColor<?php }else{ echo "breadcrumbku";}?>">
           <li class="breadcrumb-item <?php if(!(isset($_GET['pages']))){echo 'active';}?>">
           <?php 
               if((isset($_GET['pages']))){

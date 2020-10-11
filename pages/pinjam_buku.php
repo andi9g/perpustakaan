@@ -1,10 +1,10 @@
 <div class="card-header">
     <div class="row">
         <div class="col">
-            <h4  style="text-transform: capitalize;font-weight: bold;"><i class="fa fa-book"></i>&nbsp;&nbsp;<?php echo str_replace('_',' ',$_GET['pages'])?></h4>
+            <h4  style="text-transform: capitalize;font-weight: bold;"><i class="fa fa-tags"></i>&nbsp;&nbsp;<?php echo str_replace('_',' ',$_GET['pages'])?></h4>
         </div>
         <div class="col text-right">
-            <a href="?pages=<?php echo $_GET['pages']?>&aksi=tambah_buku" class="btn <?php if($_SESSION['sidebarku']=='light'){?>btn-success<?php }else {echo 'btn-danger';}?> btn-sm">
+            <a href="?pages=data_peminjaman" class="btn <?php if($_SESSION['sidebarku']=='light'){?>btn-success<?php }else {echo 'btn-danger';}?> btn-sm">
                 <i class="fa fa-search"> </i> Lihat Data Peminjaman
             </a>
         </div>
@@ -37,7 +37,7 @@
                 <td><?php echo $tampil['pengarang']?></td>
                 <td><?php echo $tampil['tahun_terbit']?></td>
                 <td><?php echo $tampil['stok_buku']?></td>
-                <td class='d-block'>
+                <td>
                     <button type="button" class="btn btn-warning d-block btn-xs px-3" data-toggle="modal" data-target="#modal<?php echo $tampil['id_buku'];?>">
                        <font style="font-weight: bold;"> PINJAM </font>
                     </button>

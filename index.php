@@ -1,6 +1,8 @@
 <?php 
 session_start();
-error_reporting(0);
+
+if($_SESSION['posisi']=='admin'){
+
 include_once('proses/proses.php');
 $db = new perpustakaan;
 
@@ -136,11 +138,11 @@ $db = new perpustakaan;
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="text" placeholder="Search" aria-label="Search">
+      <div class="input-group input-group-sm">  
+        <input style="font-weight: bold;" class="form-control form-control-navbar text-center text-white" type="text" value="ADMIN" aria-label="Search" disabled>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
+            
           </button>
         </div>
       </div>
@@ -170,7 +172,7 @@ $db = new perpustakaan;
       </li>
 
       <li class="nav-item">
-        <a href="?pages=keluar" class="text-warning"><i class="fa fa-power-off fa-lg mt-2 ml-3"></i></a>
+        <a href="?pages=logout" class="text-warning"><i class="fa fa-power-off fa-lg mt-2 ml-3"></i></a>
       </li>
     </ul>
   </nav>
@@ -212,7 +214,7 @@ $db = new perpustakaan;
 
       
       <section class="content-header">
-        <div class="container-fluid <?php if($_SESSION['sidebarku']=='light'){?>breadcrumbku<?php }else{ echo "breadcrumbColor";}?>" style="border-radius: 5px;">
+        <div class="container-fluid <?php if($_SESSION['sidebarku']=='dark'){?>breadcrumbColor<?php }else{ echo "breadcrumbku";}?>" style="border-radius: 5px;">
                   <?php
                       $pages = $_GET['pages'];
                       $aksi = $_GET['aksi'];
@@ -240,6 +242,15 @@ $db = new perpustakaan;
                         if($aksi==''){
                           include_once('pages/data_peminjaman.php');
                         }
+                      }else if($pages=='pengembalian_buku'){
+                          if($aksi==''){
+                            include_once('pages/data_pengembalian.php');
+                          }
+                      }else if($pages == 'logout'){
+                          include_once('pages/logout.php');
+                      }
+                      else {
+                        include_once('pages/home.php');
                       }
                       
                       
@@ -270,6 +281,7 @@ $db = new perpustakaan;
 <!-- Bootstrap -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Select2 -->
 <script src="plugins/select2/js/select2.full.min.js"></script>
 <!-- overlayScrollbars -->
@@ -296,10 +308,40 @@ $db = new perpustakaan;
 <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+
+
+
 
 <!-- PAGE SCRIPTS -->
 <script src="dist/js/pages/dashboard2.js"></script>
+
+<script>
+var ctx = document.getElementById('barChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL','AGU','SEP','OKT,','NOV','DES'],
+        datasets: [
+        {
+          backgroundColor: '#007bff',
+          label:'Total Peminjaman',
+          borderColor: '#007bff',
+          data: <?php $db->chart(date('Y'))?>
+        }
+      ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMax: 100
+                }
+            }]
+        }
+    }
+});
+</script>
 
 <script>
   $(function () {
@@ -399,3 +441,9 @@ $db = new perpustakaan;
 
 </body>
 </html>
+
+<?php }else {
+  header('location:login.php');
+}
+
+?>

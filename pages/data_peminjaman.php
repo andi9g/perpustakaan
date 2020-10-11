@@ -1,11 +1,11 @@
 <div class="card-header">
     <div class="row">
         <div class="col">
-            <h4 style="text-transform: capitalize;font-weight: bold;"><i class="fa fa-users"></i>&nbsp;&nbsp;<?php echo str_replace('_',' ',$_GET['pages'])?></h4>
+            <h4 style="text-transform: capitalize;font-weight: bold;"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;<?php echo str_replace('_',' ',$_GET['pages'])?></h4>
         </div>
         <div class="col text-right">
-            <a href="?pages=<?php echo $_GET['pages']?>&aksi=tambah_siswa" class="btn <?php if($_SESSION['sidebarku']=='light'){?>btn-success<?php }else {echo 'btn-danger';}?> btn-sm">
-                <i class="fa fa-plus"> </i> Tambah Siswa
+            <a href="?pages=pinjam_buku" class="btn <?php if($_SESSION['sidebarku']=='light'){?>btn-success<?php }else {echo 'btn-danger';}?> btn-sm">
+                <i class="fa fa-plus"> </i> Pinjam Buku
             </a>
         </div>
     </div>

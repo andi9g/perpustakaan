@@ -39,19 +39,11 @@
           
 
           <li class="nav-header">Proses</li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a href="?pages=pinjam_buku" class="nav-link">
               <i class="nav-icon fa fa-tags"></i>
               <p>
                 Pinjam Buku
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="?pages=pengembalian_buku" class="nav-link">
-              <i class="nav-icon far fa-calendar-times-o"></i>
-              <p>
-                Pengembalian Buku
               </p>
             </a>
           </li>
@@ -63,11 +55,20 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="?pages=pengembalian_buku" class="nav-link">
+              <i class="nav-icon far fa-calendar-times-o"></i>
+              <p>
+                Pengembalian Buku
+              </p>
+            </a>
+          </li>
+          
           
 
 
 
-          <li class="nav-header">Preference</li>
+          <!-- <li class="nav-header">Preference</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-gears"></i>
@@ -96,7 +97,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           
           <li class=""><br class=""></li>
           <li class=""></li>
